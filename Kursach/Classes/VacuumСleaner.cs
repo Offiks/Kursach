@@ -3,29 +3,16 @@
 
 namespace Kursach.Classes
 {
-    internal class VacuumСleaner : HouseholdGoods
+    public class VacuumСleaner : HouseholdGoods
     {
-        private double dustCapacity;
         private int noiseLevel;
-        private double cordLength;
 
-        public VacuumСleaner(string company, string name, int price, int maxDiscount, double dustCapacity, int noiseLevel, double cordLength, int power)
-            : base(company, name, price, maxDiscount, power)
+        public VacuumСleaner(string company, string name, int price, int maxDiscount, int noiseLevel, double cordLength, int power)
+            : base(company, name, price, maxDiscount, cordLength, power)
         {
-            DustCapacity = dustCapacity;
             NoiseLevel = noiseLevel;
-            CordLength = cordLength;
         }
-            public double DustCapacity
-            {
-                get { return dustCapacity; }
-                set
-                {
-                    if (value < 0)
-                        throw new ArgumentException("Dust capacity cannot be negative");
-                    dustCapacity = value;
-                }
-        }
+
         public int NoiseLevel
         {
             get { return noiseLevel; }
@@ -36,15 +23,10 @@ namespace Kursach.Classes
                 noiseLevel = value;
             }
         }
-        public double CordLength
+        public override string ToString()
         {
-            get { return cordLength; }
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentException("Cord length cannot be negative");
-                cordLength = value;
-            }
+            return $"Пилисос:   Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Потужність: {Power} Вт | Довжина шнура: {CordLength} м | Рівень шуму: {NoiseLevel} дБ";
         }
     }
 }
+

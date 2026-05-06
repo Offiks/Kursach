@@ -3,18 +3,16 @@
 
 namespace Kursach.Classes
 {
-    internal class Laptops : Computer
+    public class Laptop : Computer
     {
         private double weight;
         private double batteryLife;
-        private double diagonal;
 
-        public Laptops(string company, string name, int price, int maxDiscount, string processor, int ram, string gpu, double weight, double batteryLife, double diagona)
+        public Laptop(string company, string name, int price, int maxDiscount, string processor, int ram, string gpu, double weight, double batteryLife)
             : base(company, name, price, maxDiscount, processor, ram, gpu)
         {
             Weight = weight;
             BatteryLife = batteryLife;
-            Diagonal = diagona;
         }
         public double Weight
         {
@@ -36,16 +34,9 @@ namespace Kursach.Classes
                 batteryLife = value;
             }
         }
-        public double Diagonal
+        public override string ToString()
         {
-            get { return diagonal; }
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentException("Diagonal cannot be negative");
-                diagonal = value;
-            }
+            return $"Ноутбук:   Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Процесор: {Processor} | ОЗУ: {RAM} ГБ | Відеокарта: {GPU} | Вага: {Weight} кг | Час роботи від батареї: {BatteryLife} год";
         }
-        
     }
 }

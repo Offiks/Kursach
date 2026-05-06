@@ -3,12 +3,12 @@
 
 namespace Kursach.Classes
 {
-    internal class DSLR : Camera
+    public class DSLR : Camera
     {
         private bool interchangeableLens;
         private int maxShutterSpeed;
-        public DSLR(int megapixels, double sensorSize, bool interchangeableLens, int maxShutterSpeed)
-            : base(megapixels, sensorSize)
+        public DSLR(string company, string name, int price, int maxDiscount, int megapixels, bool interchangeableLens, int maxShutterSpeed)
+            : base(company, name, price, maxDiscount, megapixels)
         {
             InterchangeableLens = interchangeableLens;
             MaxShutterSpeed = maxShutterSpeed;
@@ -29,6 +29,11 @@ namespace Kursach.Classes
                     throw new ArgumentException("Max shutter speed cannot be negative");
                 maxShutterSpeed = value;
             }
+        }
+        
+        public override string ToString()
+        {
+            return $"DSLR:   Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Мегапікселі: {Megapixels} МП | Змінний об'єктив: {InterchangeableLens} | Макс. витримка: {MaxShutterSpeed} с";
         }
     }
 }

@@ -2,17 +2,15 @@
 
 namespace Kursach.Classes
 {
-    internal class Camera
+    public class Camera : Goods
     {
         private int megapixels;
-        private double sensorSize;
 
-        public Camera(int megapixels, double sensorSize)
+        public Camera(string company, string name, int price, int maxDiscount, int megapixels)
+            : base(company, name, price, maxDiscount)
         {
             Megapixels = megapixels;
-            SensorSize = sensorSize;
         }
-
         public int Megapixels
         {
             get { return megapixels; }
@@ -22,17 +20,11 @@ namespace Kursach.Classes
                     throw new ArgumentException("Megapixels cannot be negative");
                 megapixels = value;
             }
-        }
 
-        public double SensorSize
-        {
-            get { return sensorSize; }
-            set
+        }
+            public override string ToString()
             {
-                if (value < 0)
-                    throw new ArgumentException("Sensor size cannot be negative");
-                sensorSize = value;
-            }
+                return $"Камера:   Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Мегапікселі: {Megapixels} МП";
         }
     }
 }

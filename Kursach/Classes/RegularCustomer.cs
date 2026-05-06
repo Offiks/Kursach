@@ -37,12 +37,10 @@ namespace Kursach
         }
 
         public override bool Buy(Goods goods, int discount)
-        {
-            int price = goods.GetPriceWithDiscount(discount);
-
+        { 
             if (base.Buy(goods, discount))
             {
-                TotalAmountSpent += price;
+                TotalAmountSpent += goods.GetPriceWithDiscount(discount);
                 return true;
             }
 

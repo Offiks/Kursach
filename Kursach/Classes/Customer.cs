@@ -31,10 +31,7 @@ namespace Kursach
                 Balance -= price;
                 return true;
             }
-            else
-            {
-                throw new ArgumentException("Insufficient balance");
-            }
+            return false;
         }
     }
 }

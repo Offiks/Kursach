@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kursach.Classes;
+using System;
 using System.Collections.Generic;
 
 namespace Kursach
@@ -9,46 +10,23 @@ namespace Kursach
         {
             try
             {
-                List<Goods> goodsList = new List<Goods>
-            {
-                new Goods("CompanyA", "Product1", 100, 20),
-                new Goods("CompanyB", "Product2", 200, 30),
-                new Goods("CompanyC", "Product3", 300, 40)
-            };
+                Goods VacumCleaner = new VacuumСleaner("BOSCH", "BGC05AAA1", 3699, 10, 78, 6, 700);
+                Goods Camera = new Camera("Canon", "PowerShots SX40 HS", 15999, 15, 12);
+                Goods DSLR = new DSLR("Sony", "Alpha DSLR-A100 Kit", 23500, 10, 10, true, 4000);
+                Goods Computer = new Computer("Custom Build", "Ultimate WorkStation", 94500, 10, "i9-14900K", 64, "RTX 4080 S");
+                Goods Laptop = new Laptop("ASUS", "Vivobook 16X", 42000, 10, "i7-12700H", 16, "RTX 3050", 1.7, 10);
 
-                Customer customer = new Customer(500);
-                RegularCustomer regular = new RegularCustomer(500, "Ivan", 0);
+                Customer newCustomer = new Customer(50000);
+                RegularCustomer regularCustomer = new RegularCustomer(50000, "Ivan", 0);
 
-                Console.WriteLine("Список товаров:");
-                for (int i = 0; i < goodsList.Count; i++)
-                {
-                    Console.WriteLine($"{i + 1}. {goodsList[i].Name} - {goodsList[i].Price}");
-                }
 
-                Console.Write("\nВыберите товар: ");
-                int selected = int.Parse(Console.ReadLine());
+                Console.WriteLine(VacumCleaner);
+                Console.WriteLine(Camera);
+                Console.WriteLine(DSLR);
+                Console.WriteLine(Computer);
+                Console.WriteLine(Laptop);
 
-                if (customer.Buy(goodsList[selected - 1], 10))
-                {
-                    goodsList.RemoveAt(selected - 1);
-                    Console.WriteLine("Покупка успешна");
-                }
 
-                Console.WriteLine("Список товаров:");
-                for (int i = 0; i < goodsList.Count; i++)
-                {
-                    Console.WriteLine($"{i + 1}. {goodsList[i].Name} - {goodsList[i].Price}");
-                }
-
-                Console.Write("\nВыберите товар: ");
-                selected = int.Parse(Console.ReadLine());
-
-                if (regular.Buy(goodsList[selected - 1], 10))
-                {
-                    Console.WriteLine("Покупка успешна");
-                }
-                Console.WriteLine($"Обычный клиент: {customer.Balance}");
-                Console.WriteLine($"Постоянный клиент: {regular.Balance}, {regular.Name}, {regular.TotalAmountSpent}");
             }
             catch (Exception ex)
             {

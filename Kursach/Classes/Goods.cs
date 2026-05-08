@@ -61,14 +61,6 @@ namespace Kursach
             }
         }
 
-        public int GetPriceWithDiscount(int discount)
-        {
-            if (discount > MaxDiscount)
-                discount = MaxDiscount;
-
-            return Price - (Price * discount / 100);
-        }
-
         public override string ToString()
         {
             return $"Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}%";

@@ -36,15 +36,32 @@ namespace Kursach
             }
         }
 
-        public override bool Buy(Goods goods, int discount)
+        public override (string Name, int PersonalDiscount) GetDiscount(Goods goods)
+        {
+            int PersonalDiscount = TotalAmountSpent / 1000;
+            if (PersonalDiscount > 15) 
+                PersonalDiscount = 15;
+            if (PersonalDiscount > goods.MaxDiscount)
+                PersonalDiscount = goods.MaxDiscount;
+
+            return (Name, PersonalDiscount);
+        }
+
+        //Тут наверно лучше передалать
+        public override bool Buy(Goods goods)
         { 
-            if (base.Buy(goods, discount))
+            var (customerName, discount) = GetDiscount(goods);
+
+            int finalPrice = goods.Price * discount / 100;
+            if (Balance >= finalPrice)
             {
-                TotalAmountSpent += goods.GetPriceWithDiscount(discount);
+                TotalAmountSpent += finalPrice;
+                Balance -= finalPrice;
                 return true;
             }
-
-            return false;
+            else {
+                throw new ArgumentException("Insufficient balance");
+            }
         }
     }
 }

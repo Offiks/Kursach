@@ -22,16 +22,25 @@ namespace Kursach
             }
         }
 
-        public virtual bool Buy(Goods goods, int discount)
+        public virtual (string Name, int PersonalDiscount) GetDiscount(Goods goods)
         {
-            int price = goods.GetPriceWithDiscount(discount);
+            return (string.Empty, 0);
+        }
+        // Метод покупки который надо довести до ума
+        public virtual bool Buy(Goods goods)
+        {
+            var (customerName, discount) = GetDiscount(goods);
 
-            if (Balance >= price)
+            int finalPrice = goods.Price * discount / 100;
+            if (Balance >= finalPrice)
             {
-                Balance -= price;
+                Balance -= finalPrice;
                 return true;
             }
-            return false;
+            else
+            {
+                throw new ArgumentException("Insufficient balance");
+            }
         }
     }
 }

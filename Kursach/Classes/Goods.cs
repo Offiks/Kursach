@@ -9,6 +9,8 @@ namespace Kursach
         private int price;
         private int maxDiscount;
 
+        public Goods() : this ("N/A", "N/A", 0, 0) { }
+
         public Goods(string company, string name, int price, int maxDiscount)
         {
             Company = company;

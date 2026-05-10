@@ -7,6 +7,7 @@ namespace Kursach
         private string name;
         private int totalAmountSpent;
 
+        public RegularCustomer() : this(0, "N/A", 0) { }
         public RegularCustomer(int balance, string name, int total)
             : base(balance)
         {
@@ -52,7 +53,7 @@ namespace Kursach
         { 
             var (customerName, discount) = GetDiscount(goods);
 
-            int finalPrice = goods.Price * discount / 100;
+            int finalPrice = goods.Price - (goods.Price * discount / 100);
             if (Balance >= finalPrice)
             {
                 TotalAmountSpent += finalPrice;

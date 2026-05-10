@@ -8,7 +8,9 @@ namespace Kursach.Classes
         private string processor;
         private int ram;
         private string gpu;
-        
+
+        public Computer() : this("N/A", "N/A", 0, 0, "N/A", 0, "N/A") { }
+
         public Computer(string company, string name, int price, int maxDiscount, string processor, int ram, string gpu)
             : base(company, name, price, maxDiscount)
         {

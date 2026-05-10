@@ -8,6 +8,8 @@ namespace Kursach
         private int power;
         private double cordLength;
 
+        public HouseholdGoods() : this ("N/A", "N/A", 0, 0, 0, 0) { }
+
         public HouseholdGoods(string company, string name, int price, int maxDiscount, double cordLength, int power)
             : base(company, name, price, maxDiscount)
         {

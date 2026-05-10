@@ -7,6 +7,9 @@ namespace Kursach.Classes
     {
         private bool interchangeableLens;
         private int maxShutterSpeed;
+
+        public DSLR() : this("N/A", "N/A", 0, 0, 0, false, 0) { }
+
         public DSLR(string company, string name, int price, int maxDiscount, int megapixels, bool interchangeableLens, int maxShutterSpeed)
             : base(company, name, price, maxDiscount, megapixels)
         {

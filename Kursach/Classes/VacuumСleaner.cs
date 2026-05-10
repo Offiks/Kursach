@@ -7,6 +7,8 @@ namespace Kursach.Classes
     {
         private int noiseLevel;
 
+        public VacuumСleaner() : this ("N/A", "N/A", 0, 0, 0, 0, 0) { }
+
         public VacuumСleaner(string company, string name, int price, int maxDiscount, int noiseLevel, double cordLength, int power)
             : base(company, name, price, maxDiscount, cordLength, power)
         {

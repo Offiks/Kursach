@@ -6,6 +6,9 @@ namespace Kursach.Classes
     {
         private int megapixels;
 
+        public Camera() : this("N/A", "N/A", 0, 0, 0) { }
+
+
         public Camera(string company, string name, int price, int maxDiscount, int megapixels)
             : base(company, name, price, maxDiscount)
         {

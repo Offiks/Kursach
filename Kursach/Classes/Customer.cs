@@ -6,6 +6,8 @@ namespace Kursach
     {
         private int balance;
 
+        public Customer() : this(0) { }
+
         public Customer(int balance)
         {
             Balance = balance;
@@ -31,7 +33,7 @@ namespace Kursach
         {
             var (customerName, discount) = GetDiscount(goods);
 
-            int finalPrice = goods.Price * discount / 100;
+            int finalPrice = goods.Price - (goods.Price * discount / 100);
             if (Balance >= finalPrice)
             {
                 Balance -= finalPrice;

@@ -8,6 +8,7 @@ namespace Kursach.Classes
         private double weight;
         private double batteryLife;
 
+        public Laptop() : this("N/A", "N/A", 0, 0, "N/A", 0, "N/A", 0, 0) { }
         public Laptop(string company, string name, int price, int maxDiscount, string processor, int ram, string gpu, double weight, double batteryLife)
             : base(company, name, price, maxDiscount, processor, ram, gpu)
         {

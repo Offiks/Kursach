@@ -63,5 +63,11 @@ namespace Kursach
                 throw new ArgumentException("Insufficient balance");
             }
         }
+
+        public override string ToString()
+        {
+            return $"Постоянный покупатель: {Name}, Баланс: {Balance}, Потрачено всего: {TotalAmountSpent}";
+        }
+
     }
 }

@@ -21,7 +21,7 @@ namespace Kursach
 
             CustomerList.Add(new Customer(0));
             CustomerList.Add(new RegularCustomer(0, "Ivan", 200000));
-            CustomerList.Add(new RegularCustomer(0, "Peter", 2000));
+            CustomerList.Add(new RegularCustomer(0, "Peter", 52000));
             CustomerList.Add(new RegularCustomer(1000000, "deBug", 10000000));
 
             Customer currentSessionCustomer = null;
@@ -88,20 +88,21 @@ namespace Kursach
                     {
                         Console.WriteLine($"Вы авторизованы как гость, баланс: {currentSessionCustomer.Balance}");
                     }
-                    Console.WriteLine("1 Просмотреть товары\n2 Просмотреть покупателей\n3 Добавить товар\n4 Зарегестрировать нового постоянного клиента\n\n0 Выйти");
+                    Console.WriteLine("1 Просмотреть товары\n2 Просмотреть постоянных покупателей\n3 Добавить товар\n\n0 Выйти");
                     Console.WriteLine("Выберите действие: ");
 
                     int choicePage = int.Parse(Console.ReadLine());
                     if (choicePage == 0) break;
                     switch (choicePage)
                     {
+                        // Просмотр товаров
                         case 1:
                             {
 
                                 while (true)
                                 {
                                     Console.Clear();
-                                    // Проверка что список не пуст 
+                                    // Надо доделать проверка что список не пуст 
                                     for (int i = 0; i < GoodsList.Count; i++)
                                     {
                                         Console.WriteLine($"{i + 1} {GoodsList[i]}");
@@ -123,18 +124,55 @@ namespace Kursach
                                 }
                                 break;
                             }
-
+                        // Просмотр, добавление и удаление постоянных покупателей
                         case 2:
                             {
                                 Console.Clear();
                                 Console.WriteLine("Список постоянных покупателей");
-                                for (int i = 1; i < CustomerList.Count; i++) {
-                                    Console.WriteLine($"{i} {CustomerList[i]}");
+                                for (int i = 0; i < CustomerList.Count; i++)
+                                {
+                                    if (CustomerList[i] is RegularCustomer rcl)
+                                    {
+                                        Console.WriteLine($"{i}. Ім'я: {rcl.Name}, Витрачено: {rcl.TotalAmountSpent}");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"{i}. Анонімний покупець, Баланс: {CustomerList[i].Balance}");
+                                    }
                                 }
-                                Console.ReadKey();
-                                //Надо добавить возоможность добавлять новвх постоянных клиентов и удалять их
-                                break;
+
+                                Console.WriteLine("\n1 Добавить постоянного клиента\n2 Удалить постоянного клиента\n\n0 Назад");
+                                Console.WriteLine("Выберите действие: ");
+                                int choice = int.Parse(Console.ReadLine());
+                                switch (choice)
+                                {
+                                    case 1:
+                                        {
+                                            Console.Clear();
+                                            Console.WriteLine("Введите имя нового постоянного клиента");
+                                            string name = Console.ReadLine();
+                                            Console.WriteLine("Введите общую сумму трат нового постоянного клиента");
+                                            int totalAmountSpent = int.Parse(Console.ReadLine());
+                                            CustomerList.Add(new RegularCustomer(0, name, totalAmountSpent));
+                                            Console.WriteLine("Постоянный клиент добавлен!");
+                                            Console.WriteLine("Нажмите любую клавишу для продолжения");
+                                            Console.ReadKey();
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            Console.WriteLine("Введите номер постоянного клиента которого хотите удалить");
+                                            int num = int.Parse(Console.ReadLine());
+                                            CustomerList.RemoveAt(num);
+                                            Console.WriteLine("Постоянный клиент удален!");
+                                            Console.WriteLine("Нажмите любую клавишу для продолжения");
+                                            Console.ReadKey();
+                                            break;
+                                        }
+                                }break;
                             }
+                        
+                        // Добавление товара
                         case 3:
                             {
                                 try
@@ -186,21 +224,21 @@ namespace Kursach
 
                                         case 3:
                                             Console.Write("Процессор: ");
-                                            string l_cpu = Console.ReadLine();
+                                            string Cpu = Console.ReadLine();
 
                                             Console.Write("ОЗУ: ");
-                                            int l_ram = int.Parse(Console.ReadLine());
+                                            int Ram = int.Parse(Console.ReadLine());
 
                                             Console.Write("Видеокарта: ");
-                                            string l_gpu = Console.ReadLine();
+                                            string Gpu = Console.ReadLine();
 
                                             Console.Write("Вес: ");
-                                            double w = double.Parse(Console.ReadLine());
+                                            double weight = double.Parse(Console.ReadLine());
 
                                             Console.Write("Батарея(ч): ");
-                                            int bat = int.Parse(Console.ReadLine());
+                                            int battery = int.Parse(Console.ReadLine());
 
-                                            GoodsList.Add(new Laptop(comp, model, pr, ds, l_cpu, l_ram, l_gpu, w, bat));
+                                            GoodsList.Add(new Laptop(comp, model, pr, ds, Cpu, Ram, Gpu, weight, battery));
                                             break;
 
                                         case 4:
@@ -231,6 +269,7 @@ namespace Kursach
                                     break;
                                 }
                                 Console.WriteLine("Товар добавлен!");
+                                Console.WriteLine("Нажмите любую клавишу для продолжения");
                                 Console.ReadKey();
                                 break;
 

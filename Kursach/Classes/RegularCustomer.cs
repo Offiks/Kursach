@@ -33,6 +33,8 @@ namespace Kursach
             {
                 if (value < 0)
                     throw new ArgumentException("Total cannot be negative");
+                if (value > 0 && value < 50000)
+                    throw new ArgumentException("Total must be at least 50000 for a regular customer");
                 totalAmountSpent = value;
             }
         }

@@ -27,7 +27,7 @@ namespace Kursach.Classes
         }
         public override string ToString()
         {
-            return $"Пилисос:   Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Потужність: {Power} Вт | Довжина шнура: {CordLength} м | Рівень шуму: {NoiseLevel} дБ";
+            return $"Пилисос: Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Потужність: {Power} Вт | Довжина шнура: {CordLength} м | Рівень шуму: {NoiseLevel} дБ";
         }
     }
 }

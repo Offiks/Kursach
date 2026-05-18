@@ -39,7 +39,7 @@ namespace Kursach
         }
         public override string ToString()
         {
-            return $"Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Потужність: {Power} Вт | Довжина шнура: {CordLength} м";
+            return $"Побутовий товар: Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Потужність: {Power} Вт | Довжина шнура: {CordLength} м";
         }
     }
 }

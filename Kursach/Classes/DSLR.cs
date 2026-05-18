@@ -36,7 +36,7 @@ namespace Kursach.Classes
         
         public override string ToString()
         {
-            return $"DSLR:   Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Мегапікселі: {Megapixels} МП | Змінний об'єктив: {InterchangeableLens} | Макс. витримка: {MaxShutterSpeed} с";
+            return $"DSLR: Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Мегапікселі: {Megapixels} МП | Змінний об'єктив: {InterchangeableLens} | Макс. витримка: {MaxShutterSpeed} с";
         }
     }
 }

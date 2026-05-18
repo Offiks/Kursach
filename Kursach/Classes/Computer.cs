@@ -50,7 +50,7 @@ namespace Kursach.Classes
         }
         public override string ToString()
         {
-            return $"Комп'ютер:   Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Процесор: {Processor} | ОЗУ: {RAM} ГБ | Відеокарта: {GPU}";
+            return $"Комп'ютер: Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Процесор: {Processor} | ОЗУ: {RAM} ГБ | Відеокарта: {GPU}";
         }
     }
 }

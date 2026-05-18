@@ -37,7 +37,7 @@ namespace Kursach.Classes
         }
         public override string ToString()
         {
-            return $"Ноутбук:   Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Процесор: {Processor} | ОЗУ: {RAM} ГБ | Відеокарта: {GPU} | Вага: {Weight} кг | Час роботи від батареї: {BatteryLife} год";
+            return $"Ноутбук: Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Процесор: {Processor} | ОЗУ: {RAM} ГБ | Відеокарта: {GPU} | Вага: {Weight} кг | Час роботи від батареї: {BatteryLife} год";
         }
     }
 }

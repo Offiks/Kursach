@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 
 namespace Kursach
 {
@@ -39,6 +40,7 @@ namespace Kursach
             }
         }
 
+
         public override (string Name, int PersonalDiscount) GetDiscount(Goods goods)
         {
             int PersonalDiscount = TotalAmountSpent / 1000;
@@ -50,7 +52,6 @@ namespace Kursach
             return (Name, PersonalDiscount);
         }
 
-        //Тут наверно лучше передалать
         public override bool Buy(Goods goods)
         { 
             var (customerName, discount) = GetDiscount(goods);
@@ -69,7 +70,7 @@ namespace Kursach
 
         public override string ToString()
         {
-            return $"Постоянный покупатель: {Name}, Баланс: {Balance}, Потрачено всего: {TotalAmountSpent}";
+            return $"Постійний покупець: {Name}, Баланс: {Balance}, Витрачено усього: {TotalAmountSpent}";
         }
 
     }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net;
 
 namespace Kursach
 {
@@ -24,11 +26,30 @@ namespace Kursach
             }
         }
 
+        public static bool PrintCustomer(List<Customer> list)
+        {
+            Console.WriteLine($"Список постійних покупців");
+            if (list == null)
+            {
+                Console.WriteLine("Список постійних покупців порожній.");
+                Console.WriteLine("Ддя продовження натисніть будь яку кнопку");
+                Console.ReadKey();
+                return false;
+            }
+            else
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1} {list[i]}");
+                }
+                return true;
+            }
+        }
+
         public virtual (string Name, int PersonalDiscount) GetDiscount(Goods goods)
         {
             return (string.Empty, 0);
         }
-        // Метод покупки который надо довести до ума
         public virtual bool Buy(Goods goods)
         {
             var (customerName, discount) = GetDiscount(goods);
@@ -41,8 +62,13 @@ namespace Kursach
             }
             else
             {
-                throw new ArgumentException("Insufficient balance");
+                return false;
             }
+        }
+
+        public override string ToString()
+        {
+            return $"Покупець: Баланс: {Balance}";
         }
     }
 }

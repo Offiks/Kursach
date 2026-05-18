@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Kursach.Classes.Camera">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAIAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kursach.Classes.Computer">
+    <Position X="2.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAIAAAAAAAEAAAAAAAIAAAAAAAAAAgAAAAEAAA=</HashCode>
+      <FileName>Classes\Computer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kursach.Classes.DSLR">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAEAACEAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\DSLR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kursach.Classes.Laptop">
+    <Position X="5.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAACAAABAgAAAQAAAAAAA=</HashCode>
+      <FileName>Classes\Laptops.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kursach.Classes.VacuumСleaner">
+    <Position X="5.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAABAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\VacuumСleaner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kursach.Customer">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAEAAgAAAAIAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kursach.Goods">
+    <Position X="0.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAQAAgAAEAIAAAAQAAAAEAAAAAAAABAAAAAQ=</HashCode>
+      <FileName>Classes\Goods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kursach.HouseholdGoods">
+    <Position X="2.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAEAAAABAAIAAAACAAA=</HashCode>
+      <FileName>Classes\HouseholdGoods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kursach.RegularCustomer">
+    <Position X="9.25" Y="7" Width="1.5" />
+    <InheritanceLine Type="Kursach.Customer" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="6.334" />
+        <Point X="10" Y="6.625" />
+        <Point X="10.25" Y="6.625" />
+        <Point X="10.25" Y="7" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AIIAAAAAAAAAAAAEAAAAAAQAAAAkAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Classes\RegularCustomer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

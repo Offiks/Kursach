@@ -27,7 +27,7 @@ namespace Kursach.Classes
         }
             public override string ToString()
             {
-                return $"Камера:   Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Мегапікселі: {Megapixels} МП";
+                return $"Камера: Компанія: {Company} | Назва: {Name} | Ціна: {Price} грн | Макс. знижка: {MaxDiscount}% | Мегапікселі: {Megapixels} МП";
         }
     }
 }

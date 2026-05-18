@@ -48,15 +48,18 @@
     <Compile Include="Classes\DSLR.cs" />
     <Compile Include="Classes\HouseholdGoods.cs" />
     <Compile Include="Classes\Laptops.cs" />
+    <Compile Include="Classes\Purchase.cs" />
     <Compile Include="Classes\RegularCustomer.cs" />
     <Compile Include="Classes\Customer.cs" />
     <Compile Include="Classes\Goods.cs" />
+    <Compile Include="Classes\Shop.cs" />
     <Compile Include="Classes\VacuumСleaner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

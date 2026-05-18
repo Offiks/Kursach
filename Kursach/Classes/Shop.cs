@@ -70,16 +70,6 @@ namespace Kursach.Classes
             }
         }
 
-        public bool CheckSecurity(int secLevel, int option) {
-            if (option == 3 || option == 4 || option == 5)
-            {
-                return secLevel >= 2;
-            }
-            else
-            {
-                return true;
-            }
-        }
         public void AddPurchase(Customer buyer, Goods product, int price) { 
             History.Add(new Purchase(buyer, product, price));
         }

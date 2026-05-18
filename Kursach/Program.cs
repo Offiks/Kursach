@@ -8,7 +8,6 @@ namespace Kursach
     {
         static void Main()
         {
-
             //Списки, товари, покупці за замовчуванням
             List<Shop> ShopList = new List<Shop>();
             List<Customer> CustomerList = new List<Customer>();
@@ -72,6 +71,7 @@ namespace Kursach
                 }
                 if (currentSessionCustomer == null)
                 {
+                    Console.Clear();
                     Console.WriteLine("Доброго Дня! Ви постійний клієнт?");
                     Console.WriteLine("y - так, n - ні");
 
@@ -147,6 +147,8 @@ namespace Kursach
                                 else
                                 {
                                     Console.WriteLine("Невірне ім’я менеджера!");
+                                    Console.ReadKey();
+                                    continue;
                                 }
 
                                 break;
@@ -184,6 +186,7 @@ namespace Kursach
                 {
                     Console.WriteLine("1 Переглянути товари\n2 Передевитися інформацію про магазин\n3 Переглянути постійних покупців\n4 Додати товар\n5 Передевитися історію покупок.\n\n0 Вийти з магазина");
                 }
+                Console.WriteLine("Оберіть дію");
 
                 int choicePage;
                 try
@@ -201,15 +204,10 @@ namespace Kursach
                 {
                     currentShop = null;
                     currentSessionCustomer = null;
+                    currentSecurityLevel = 0;
                     continue;
                 }
 
-                if (!currentShop.CheckSecurity(currentSecurityLevel, choicePage))
-                {
-                    Console.WriteLine("Ви спробували зайти до розділу призначеного для менеджера. Натисніть будь яку кнопку щоб повернутись назад.");
-                    Console.ReadKey();
-                    continue;
-                }
                 if (choicePage < 1 || choicePage > 5)
                 {
                     Console.WriteLine("Невірний вибір. Натисніть будь-яку клавішу для продовження");
@@ -279,7 +277,7 @@ namespace Kursach
                         }
                         break;
                     // Перегляд, додавання та видалення постійних покупців
-                    case 3:
+                    case 3 when currentSecurityLevel >= 2:
                         {
                             Console.Clear();
                             Customer.PrintCustomer(CustomerList);
@@ -316,12 +314,19 @@ namespace Kursach
                             break;
                         }
                     // Додавання товару
-                    case 4:
+                    case 4 when currentSecurityLevel >= 2:
                         {
+                            if (currentShop.GoodsList.Count >= currentShop.StorageCapacity)
+                            {
+                                Console.WriteLine("Склад повний! Для початку треба щоб хтось купив товар, або видалити товар");
+                                Console.WriteLine("Натисніть будь-яку клавішу для продовження");
+                                Console.ReadKey();
+                                break;
+                            }
                             try
                             {
                                 Console.Clear();
-                                Console.WriteLine("ВИБЕРІТЬ ТИП ТОВАРУ:");
+                                Console.WriteLine("Виберіть тип товару:");
                                 Console.WriteLine("1-Пилосос, 2-Комп'ютер, 3-Ноутбук, 4-Камера, 5-DSLR");
                                 int goodTypeChoosen = int.Parse(Console.ReadLine());
 
@@ -418,7 +423,7 @@ namespace Kursach
 
                         }
                     // Перегляд історії покупок
-                    case 5:
+                    case 5 when currentSecurityLevel >= 2:
                         {
                             Console.Clear();
                             currentShop.PrintHistory();

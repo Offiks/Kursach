@@ -36,9 +36,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Kursach.Customer">
-    <Position X="9.25" Y="3.75" Width="1.5" />
+    <Position X="8" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAEAAgAAAAIAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAAAAEAAgAAAAIAAAgAAAAAAAAABAAAAA=</HashCode>
       <FileName>Classes\Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -57,18 +57,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Kursach.RegularCustomer">
-    <Position X="9.25" Y="7" Width="1.5" />
-    <InheritanceLine Type="Kursach.Customer" FixedToPoint="true">
-      <Path>
-        <Point X="10" Y="6.334" />
-        <Point X="10" Y="6.625" />
-        <Point X="10.25" Y="6.625" />
-        <Point X="10.25" Y="7" />
-      </Path>
-    </InheritanceLine>
+    <Position X="8" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIIAAAAAAAAAAAAEAAAAAAQAAAAkAAAAAAACAAAAAAA=</HashCode>
       <FileName>Classes\RegularCustomer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kursach.Classes.Shop">
+    <Position X="10.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEAIAAAAAEAAAAQJAAAEIAAAACCAACgAAAAAA=</HashCode>
+      <FileName>Classes\Shop.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

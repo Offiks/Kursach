@@ -1,23 +1,72 @@
-﻿using System;
+﻿using Kursach;
+using System;
 
-namespace Kursach.Classes
+public class Purchase
 {
-    public class Purchase
+    private Customer buyer;
+    private Goods product;
+    private int price;
+
+    public Purchase() : this(new Customer(), new Goods(), 0) { }
+    public Purchase(Customer buyer, Goods product, int price)
     {
-        public Customer Buyer { get; set; }
-        public Goods Product { get; set; }
-        public int price { get; set; }
+        Buyer = buyer;
+        Product = product;
+        Price = price;
+    }
 
-        public Purchase(Customer buyer, Goods product, int count)
+    public Customer Buyer
+    {
+        get { return buyer; }
+        set
         {
-            Buyer = buyer;
-            Product = product;
-            price = count;
+            if (value != null)
+            {
+                buyer = value;
+            }
+            else
+            {
+                Console.WriteLine("Покупець не може бути порожнім.");
+            }
         }
+    }
 
-        public override string ToString()
+    public Goods Product
+    {
+        get { return product; }
+        set
         {
-            return $"Товар {Product}, купив {Buyer}, ціна {price}";
+            if (value != null)
+            {
+                product = value;
+            }
+            else
+            {
+                Console.WriteLine("Товар не може бути порожнім.");
+            }
         }
+    }
+
+    public int Price
+    {
+        get { return price; }
+        set
+        {
+            if (value > 0)
+            {
+                price = value;
+            }
+            else
+            {
+                Console.WriteLine("Ціна повинна бути більше 0.");
+            }
+        }
+    }
+
+
+
+    public override string ToString()
+    {
+        return $"Товар {Product.Name}, купив {Buyer.Name}, ціна {Price}";
     }
 }

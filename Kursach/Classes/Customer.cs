@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Xml.Linq;
 
 namespace Kursach
 {
     public class Customer
     {
         private int balance;
+        private readonly string name = "Guest";
 
-        public Customer() : this(0) { }
 
-        public Customer(int balance)
+        public Customer() : this(0, "Guest") { }
+
+        public Customer(int balance, string name = "Guest")
         {
             Balance = balance;
         }
@@ -26,6 +29,11 @@ namespace Kursach
             }
         }
 
+        public string Name
+        {
+            get { return name; }
+        }
+
         public static bool PrintCustomer(List<Customer> list)
         {
             Console.WriteLine($"Список постійних покупців");
@@ -38,9 +46,9 @@ namespace Kursach
             }
             else
             {
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 1; i < list.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1} {list[i]}");
+                    Console.WriteLine($"{i} {list[i]}");
                 }
                 return true;
             }

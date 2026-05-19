@@ -53,6 +53,7 @@
     <Compile Include="Classes\RegularCustomer.cs" />
     <Compile Include="Classes\Customer.cs" />
     <Compile Include="Classes\Goods.cs" />
+    <Compile Include="Classes\Session.cs" />
     <Compile Include="Classes\Shop.cs" />
     <Compile Include="Classes\VacuumСleaner.cs" />
     <Compile Include="Program.cs" />

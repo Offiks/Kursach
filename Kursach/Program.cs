@@ -11,6 +11,7 @@ namespace Kursach
             //Списки, товари, покупці за замовчуванням
             List<Shop> ShopList = new List<Shop>();
             List<Customer> CustomerList = new List<Customer>();
+            Session session = new Session();
 
             ShopList.Add(new Shop("123 Main St", 10, "Doe"));
             ShopList.Add(new Shop("231 Oak Ave", 30, "Smith"));
@@ -27,35 +28,32 @@ namespace Kursach
             CustomerList.Add(new RegularCustomer(0, "Peter", 52000));
             CustomerList.Add(new RegularCustomer(1000000, "deBug", 10000000));
 
-            Customer currentSessionCustomer = null;
-            int currentSecurityLevel = 0;
-            Shop currentShop = null;
 
             // Програма
             while (true)
             {
-                if (currentShop == null)
+                if (session.CurrentShop == null)
                 {
-                    currentShop = Menu.ShowShopSelectMenu(ShopList);
+                    session.CurrentShop = Menu.ShowShopSelectMenu(ShopList);
 
-                    if (currentShop == null)
+                    if (session.CurrentShop == null)
                         break;
                 }
 
-                if (currentSessionCustomer == null)
+                if (session.CurrentCustomer == null)
                 {
-                    var result = Menu.ShowCustomerSelectMenu(CustomerList, currentShop);
+                    var result = Menu.ShowCustomerSelectMenu(CustomerList, session.CurrentShop);
 
-                    currentSecurityLevel = result.securityLevel;
-                    currentSessionCustomer = result.customer;
+                    session.SecurityLevel = result.securityLevel;
+                    session.CurrentCustomer = result.customer;
                 }
 
                 //Головне вікно
-                int choicePage = Menu.ShowMainMenu(currentShop, currentSecurityLevel, currentSessionCustomer);
+                int choicePage = Menu.ShowMainMenu(session.CurrentShop, session.SecurityLevel, session.CurrentCustomer);
                 if (choicePage == 0) {
-                    currentShop = null;
-                    currentSessionCustomer = null;
-                    currentSecurityLevel = 0;
+                    session.CurrentShop = null;
+                    session.CurrentCustomer = null;
+                    session.SecurityLevel = 0;
                     continue;
                 }
                 switch (choicePage)
@@ -63,35 +61,35 @@ namespace Kursach
                     // Перегляд товарів
                     case 1:
                         {
-                            Menu.ShowProducts(currentShop, currentSessionCustomer);
+                            Menu.ShowProducts(session.CurrentShop, session.CurrentCustomer);
                             break;
                         }
                     // Перегляд інформації про магазин
                     case 2:
                         {
-                            Menu.ShowInfo(currentShop);
+                            Menu.ShowInfo(session.CurrentShop);
                             break;
                         }
 
                     // Перегляд, додавання та видалення постійних покупців
-                    case 3 when currentSecurityLevel >= 2:
+                    case 3 when session.SecurityLevel >= 2:
                         {
-                            Menu.ShowCustomersManager(currentShop, CustomerList);
+                            Menu.ShowCustomersManager(session.CurrentShop, CustomerList);
                             break;
                         }
 
                     // Додавання товару
-                    case 4 when currentSecurityLevel >= 2:
+                    case 4 when session.SecurityLevel >= 2:
                         {
-                            Menu.ShowAddProduct(currentShop);
+                            Menu.ShowAddProduct(session.CurrentShop);
                             break;
 
                         }
 
                     // Перегляд історії покупок
-                    case 5 when currentSecurityLevel >= 2:
+                    case 5 when session.SecurityLevel >= 2:
                         {
-                            Menu.ShowHistory(currentShop);
+                            Menu.ShowHistory(session.CurrentShop);
                             break;
                         }
                     default:

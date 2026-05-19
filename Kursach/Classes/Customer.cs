@@ -34,7 +34,7 @@ namespace Kursach
             get { return name; }
         }
 
-        public static bool PrintCustomer(List<Customer> list)
+        public static void PrintCustomer(List<Customer> list)
         {
             Console.WriteLine($"Список постійних покупців");
             if (list == null)
@@ -42,7 +42,6 @@ namespace Kursach
                 Console.WriteLine("Список постійних покупців порожній.");
                 Console.WriteLine("Ддя продовження натисніть будь яку кнопку");
                 Console.ReadKey();
-                return false;
             }
             else
             {
@@ -50,7 +49,6 @@ namespace Kursach
                 {
                     Console.WriteLine($"{i} {list[i]}");
                 }
-                return true;
             }
         }
 
@@ -73,7 +71,6 @@ namespace Kursach
                 return false;
             }
         }
-
         public override string ToString()
         {
             return $"Покупець: Баланс: {Balance}";

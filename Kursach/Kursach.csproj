@@ -48,6 +48,7 @@
     <Compile Include="Classes\DSLR.cs" />
     <Compile Include="Classes\HouseholdGoods.cs" />
     <Compile Include="Classes\Laptops.cs" />
+    <Compile Include="Classes\Menu.cs" />
     <Compile Include="Classes\Purchase.cs" />
     <Compile Include="Classes\RegularCustomer.cs" />
     <Compile Include="Classes\Customer.cs" />

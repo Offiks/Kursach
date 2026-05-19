@@ -50,24 +50,29 @@ namespace Kursach.Classes
                 managerName = value;
             }
         }
-
-        public bool PrintGoods()
+        public bool HasGoods()
         {
+            return GoodsList != null && GoodsList.Count > 0;
+        }
+
+        public void PrintGoods()
+        {
+            Console.Clear();
             Console.WriteLine($"Товари в магазині за адресою: {Address}");
+
             if (GoodsList == null) {
                 Console.WriteLine("У магазині не має товарів");
                 Console.WriteLine("Ддя продовження натисніть будь яку кнопку");
                 Console.ReadKey();
-                return false;
-                    }
-            else
+                return;
+             }
+            
+            for (int i = 0; i < GoodsList.Count; i++)
             {
-                for (int i = 0; i < GoodsList.Count; i++)
-                {
-                    Console.WriteLine($"{i + 1} {GoodsList[i]}");
-                }
-                return true;
+                Console.WriteLine($"{i + 1} {GoodsList[i]}");
             }
+            Console.WriteLine("Щоб купити товар, введіть його номер");
+            Console.WriteLine("Для виходу введіть 0");
         }
 
         public void AddPurchase(Customer buyer, Goods product, int price) { 

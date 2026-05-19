@@ -64,8 +64,8 @@ namespace Kursach
                 return true;
             }
             else {
-                throw new ArgumentException("Insufficient balance");
-            }
+                return false;
+            }     
         }
 
         public override string ToString()

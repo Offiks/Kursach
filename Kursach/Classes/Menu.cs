@@ -243,10 +243,10 @@ namespace Kursach.Classes
                 }
             }
         }
-        public static void ShowInfo(Shop currentShop)
+        public static void ShowInfo(Shop currentShop, int securityLevel)
         {
             Console.Clear();
-            Console.WriteLine(currentShop);
+            Console.WriteLine(currentShop.ToString(securityLevel));
             Console.WriteLine("Натисніть будь-яку клавішу для продовження");
             Console.ReadKey();
         }

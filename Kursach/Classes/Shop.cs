@@ -132,6 +132,11 @@ namespace Kursach.Classes
             for (int i = 0; i < itemsCount; i++)
             {
                 int index = random.Next(StandartCatalog.Count);
+
+                while (!usedIndexes.Add(index))
+                {
+                    index = random.Next(StandartCatalog.Count);
+                }
                 list.Add(StandartCatalog[index]);
             }
             return list;

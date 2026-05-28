@@ -3,7 +3,7 @@
 
 namespace Kursach
 {
-    public class HouseholdGoods : Goods
+    public abstract class HouseholdGoods : Goods
     {
         private int power;
         private double cordLength;

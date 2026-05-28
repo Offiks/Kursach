@@ -16,7 +16,7 @@ namespace Kursach
             TotalAmountSpent = total;
         }
 
-        public string Name
+        public new string Name
         {
             get { return name; }
             set

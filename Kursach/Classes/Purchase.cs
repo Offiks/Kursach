@@ -7,7 +7,6 @@ public class Purchase
     private Goods product;
     private int price;
 
-    public Purchase() : this(new Customer(), new Goods(), 0) { }
     public Purchase(Customer buyer, Goods product, int price)
     {
         Buyer = buyer;

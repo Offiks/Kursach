@@ -71,6 +71,11 @@ namespace Kursach.Classes
             for (int i = 0; i < ShopsCount; i++)
             {
                 int index = random.Next(StandartShop.Count);
+
+                while(!usedIndexes.Add(index))
+                {
+                    index = random.Next(StandartShop.Count);
+                }
                 list.Add(StandartShop[index]);
             }
             return list;

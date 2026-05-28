@@ -2,7 +2,7 @@
 
 namespace Kursach
 {
-    public class Goods
+    public abstract class Goods
     {
         private string company;
         private string name;

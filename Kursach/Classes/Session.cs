@@ -12,6 +12,7 @@ namespace Kursach.Classes
 
         private List<Shop> shopList = AddStandartShops();
         private List<Customer> customerList = AddStandartCustomers();
+        private static Random random = new Random();
 
         public Session()
         {
@@ -48,7 +49,6 @@ namespace Kursach.Classes
         public static List<Customer> AddStandartCustomers()
         {
             var list = new List<Customer>();
-            Random random = new Random();
             int CustomersCount = random.Next(1, 4);
             var usedIndexes = new HashSet<int>();
 
@@ -65,7 +65,6 @@ namespace Kursach.Classes
         public static List<Shop> AddStandartShops()
         {
             var list = new List<Shop>();
-            Random random = new Random();
             int ShopsCount = random.Next(3, 5);
             var usedIndexes = new HashSet<int>();
             for (int i = 0; i < ShopsCount; i++)

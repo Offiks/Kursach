@@ -10,6 +10,7 @@ namespace Kursach.Classes
         private string managerName;
         private List<Goods> goodsList = AddDefaultGoods();
         private List<Purchase> history = new List<Purchase>();
+        private static Random random = new Random();
 
         public Shop() : this("N/A", 0, "N/A") { }
         public Shop(string address, int storageCapacity, string managerName)
@@ -124,7 +125,6 @@ namespace Kursach.Classes
         {
 
             var list = new List<Goods>();
-            Random random = new Random();
             int itemsCount = random.Next(3,7);
             var usedIndexes = new HashSet<int>(); 
 
